@@ -34,10 +34,10 @@ def get_recent_listening(token):
   except:
     pass
   
-def get_current_listening(token):
-  data = get_data('https://api.spotify.com/v1/me/player/currently-playing', token)
-  
+def get_current_listening(token):  
+  isPlaying = False
   try:
+    data = get_data('https://api.spotify.com/v1/me/player/currently-playing', token)
     song = data['item']['name']
     isPlaying = data['is_playing']
     artist = data['item']['artists'][0]['name']
